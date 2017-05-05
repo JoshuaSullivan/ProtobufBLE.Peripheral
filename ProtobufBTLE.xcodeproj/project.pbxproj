@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,8 @@
 		BC4BDC881EBCC1C80051118C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC4BDC871EBCC1C80051118C /* Assets.xcassets */; };
 		BC4BDC8B1EBCC1C80051118C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC4BDC891EBCC1C80051118C /* LaunchScreen.storyboard */; };
 		BC4BDC961EBCC1C80051118C /* ProtobufBTLETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4BDC951EBCC1C80051118C /* ProtobufBTLETests.swift */; };
+		BC4BDCA21EBCEE1E0051118C /* BTLEPacket.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4BDCA11EBCEE1E0051118C /* BTLEPacket.pb.swift */; };
+		BC4BDCA51EBCEF3E0051118C /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC4BDCA41EBCEF3E0051118C /* SwiftProtobuf.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +30,7 @@
 /* Begin PBXFileReference section */
 		BC4BDC7D1EBCC1C70051118C /* ProtobufBTLE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProtobufBTLE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC4BDC801EBCC1C70051118C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BC4BDC821EBCC1C80051118C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BC4BDC821EBCC1C80051118C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../ViewController.swift; sourceTree = "<group>"; };
 		BC4BDC851EBCC1C80051118C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BC4BDC871EBCC1C80051118C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC4BDC8A1EBCC1C80051118C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +38,8 @@
 		BC4BDC911EBCC1C80051118C /* ProtobufBTLETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProtobufBTLETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC4BDC951EBCC1C80051118C /* ProtobufBTLETests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufBTLETests.swift; sourceTree = "<group>"; };
 		BC4BDC971EBCC1C80051118C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC4BDCA11EBCEE1E0051118C /* BTLEPacket.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTLEPacket.pb.swift; sourceTree = "<group>"; };
+		BC4BDCA41EBCEF3E0051118C /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftProtobuf.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC4BDCA51EBCEF3E0051118C /* SwiftProtobuf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,11 +83,11 @@
 			isa = PBXGroup;
 			children = (
 				BC4BDC801EBCC1C70051118C /* AppDelegate.swift */,
-				BC4BDC821EBCC1C80051118C /* ViewController.swift */,
-				BC4BDC841EBCC1C80051118C /* Main.storyboard */,
+				BC4BDCA71EBCEFD40051118C /* UserInterfaces */,
+				BC4BDCA81EBCEFD40051118C /* ViewControllers */,
+				BC4BDCA01EBCEE1E0051118C /* Models */,
 				BC4BDC871EBCC1C80051118C /* Assets.xcassets */,
-				BC4BDC891EBCC1C80051118C /* LaunchScreen.storyboard */,
-				BC4BDC8C1EBCC1C80051118C /* Info.plist */,
+				BC4BDCA61EBCEF820051118C /* Resources */,
 			);
 			path = ProtobufBTLE;
 			sourceTree = "<group>";
@@ -96,6 +101,40 @@
 			path = ProtobufBTLETests;
 			sourceTree = "<group>";
 		};
+		BC4BDCA01EBCEE1E0051118C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BC4BDCA11EBCEE1E0051118C /* BTLEPacket.pb.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BC4BDCA61EBCEF820051118C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BC4BDC8C1EBCC1C80051118C /* Info.plist */,
+				BC4BDCA41EBCEF3E0051118C /* SwiftProtobuf.framework */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		BC4BDCA71EBCEFD40051118C /* UserInterfaces */ = {
+			isa = PBXGroup;
+			children = (
+				BC4BDC841EBCC1C80051118C /* Main.storyboard */,
+				BC4BDC891EBCC1C80051118C /* LaunchScreen.storyboard */,
+			);
+			path = UserInterfaces;
+			sourceTree = "<group>";
+		};
+		BC4BDCA81EBCEFD40051118C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BC4BDC821EBCC1C80051118C /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,6 +145,7 @@
 				BC4BDC791EBCC1C70051118C /* Sources */,
 				BC4BDC7A1EBCC1C70051118C /* Frameworks */,
 				BC4BDC7B1EBCC1C70051118C /* Resources */,
+				BC4BDCA31EBCEE2B0051118C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -146,19 +186,17 @@
 				TargetAttributes = {
 					BC4BDC7C1EBCC1C70051118C = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 7Q2ZL6T85L;
 						ProvisioningStyle = Automatic;
 					};
 					BC4BDC901EBCC1C80051118C = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 7Q2ZL6T85L;
 						ProvisioningStyle = Automatic;
 						TestTargetID = BC4BDC7C1EBCC1C70051118C;
 					};
 				};
 			};
 			buildConfigurationList = BC4BDC781EBCC1C70051118C /* Build configuration list for PBXProject "ProtobufBTLE" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -196,6 +234,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		BC4BDCA31EBCEE2B0051118C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftProtobuf.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BC4BDC791EBCC1C70051118C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -203,6 +258,7 @@
 			files = (
 				BC4BDC831EBCC1C80051118C /* ViewController.swift in Sources */,
 				BC4BDC811EBCC1C70051118C /* AppDelegate.swift in Sources */,
+				BC4BDCA21EBCEE1E0051118C /* BTLEPacket.pb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +287,7 @@
 				BC4BDC851EBCC1C80051118C /* Base */,
 			);
 			name = Main.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		BC4BDC891EBCC1C80051118C /* LaunchScreen.storyboard */ = {
@@ -239,6 +296,7 @@
 				BC4BDC8A1EBCC1C80051118C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -341,7 +399,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7Q2ZL6T85L;
+				DEVELOPMENT_TEAM = PKW9G7KJJ5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ProtobufBTLE",
+				);
 				INFOPLIST_FILE = ProtobufBTLE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nerdery.ProtobufBTLE;
@@ -354,7 +416,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7Q2ZL6T85L;
+				DEVELOPMENT_TEAM = PKW9G7KJJ5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ProtobufBTLE",
+				);
 				INFOPLIST_FILE = ProtobufBTLE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nerdery.ProtobufBTLE;
@@ -412,6 +478,7 @@
 				BC4BDC9C1EBCC1C80051118C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BC4BDC9D1EBCC1C80051118C /* Build configuration list for PBXNativeTarget "ProtobufBTLETests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +487,7 @@
 				BC4BDC9F1EBCC1C80051118C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
