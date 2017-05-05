@@ -15,6 +15,8 @@
 		BC4BDC961EBCC1C80051118C /* ProtobufBTLETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4BDC951EBCC1C80051118C /* ProtobufBTLETests.swift */; };
 		BC4BDCA21EBCEE1E0051118C /* BTLEPacket.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4BDCA11EBCEE1E0051118C /* BTLEPacket.pb.swift */; };
 		BC4BDCA51EBCEF3E0051118C /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC4BDCA41EBCEF3E0051118C /* SwiftProtobuf.framework */; };
+		BC4BDCAB1EBD14B90051118C /* BLEPeripheralService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4BDCAA1EBD14B90051118C /* BLEPeripheralService.swift */; };
+		BC6AEF371EBD370000E1A449 /* GlobalDeclarations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6AEF361EBD370000E1A449 /* GlobalDeclarations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		BC4BDC971EBCC1C80051118C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC4BDCA11EBCEE1E0051118C /* BTLEPacket.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTLEPacket.pb.swift; sourceTree = "<group>"; };
 		BC4BDCA41EBCEF3E0051118C /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftProtobuf.framework; sourceTree = "<group>"; };
+		BC4BDCAA1EBD14B90051118C /* BLEPeripheralService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEPeripheralService.swift; sourceTree = "<group>"; };
+		BC6AEF361EBD370000E1A449 /* GlobalDeclarations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalDeclarations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,9 +87,11 @@
 			isa = PBXGroup;
 			children = (
 				BC4BDC801EBCC1C70051118C /* AppDelegate.swift */,
-				BC4BDCA71EBCEFD40051118C /* UserInterfaces */,
-				BC4BDCA81EBCEFD40051118C /* ViewControllers */,
+				BC6AEF361EBD370000E1A449 /* GlobalDeclarations.swift */,
 				BC4BDCA01EBCEE1E0051118C /* Models */,
+				BC4BDCA91EBD14980051118C /* Services */,
+				BC4BDCA81EBCEFD40051118C /* ViewControllers */,
+				BC4BDCA71EBCEFD40051118C /* UserInterfaces */,
 				BC4BDC871EBCC1C80051118C /* Assets.xcassets */,
 				BC4BDCA61EBCEF820051118C /* Resources */,
 			);
@@ -133,6 +139,14 @@
 				BC4BDC821EBCC1C80051118C /* ViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BC4BDCA91EBD14980051118C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BC4BDCAA1EBD14B90051118C /* BLEPeripheralService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +273,8 @@
 				BC4BDC831EBCC1C80051118C /* ViewController.swift in Sources */,
 				BC4BDC811EBCC1C70051118C /* AppDelegate.swift in Sources */,
 				BC4BDCA21EBCEE1E0051118C /* BTLEPacket.pb.swift in Sources */,
+				BC4BDCAB1EBD14B90051118C /* BLEPeripheralService.swift in Sources */,
+				BC6AEF371EBD370000E1A449 /* GlobalDeclarations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,8 +15,6 @@ class ViewController: UIViewController {
 
     // MARK: Constants and Child Types
     
-    static let serviceUUIDString = "33E02682-FD2C-4E00-A02D-BAE119562994"
-    
     // MARK: - IBOutlets
 
     @IBOutlet weak var timeLabel: UILabel!
