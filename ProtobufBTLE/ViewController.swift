@@ -9,8 +9,14 @@
 import UIKit
 import CoreMotion
 
+private let rad2Deg: Double = 180.0 / Double.pi
+
 class ViewController: UIViewController {
 
+    // MARK: Constants and Child Types
+    
+    static let serviceUUIDString = "33E02682-FD2C-4E00-A02D-BAE119562994"
+    
     // MARK: - IBOutlets
 
     @IBOutlet weak var timeLabel: UILabel!
@@ -19,14 +25,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var yLabel: UILabel!
     @IBOutlet weak var zLabel: UILabel!
     
-    @IBOutlet weak var messageField: UITextField!
-    
     // MARK: - Properties
     
-    fileprivate var motionManager: CMMotionManager = CMMotionManager()
-    fileprivate var gyroUpdateQueue = OperationQueue()
+    fileprivate var updateTimer: Timer?
     
-    fileprivate var gyroData: CMGyroData?
+    fileprivate var motionManager: CMMotionManager = CMMotionManager()
+    fileprivate var updateQueue = OperationQueue()
+    
+    fileprivate let dateFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.timeStyle = .short
+        df.dateStyle = .short
+        return df
+    }()
+    
+    fileprivate var motionData: CMDeviceMotion?
     
     // MARK: - Lifecycle
     
@@ -36,12 +49,20 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        motionManager.gyroUpdateInterval = 0.25
-        motionManager.startGyroUpdates(to: gyroUpdateQueue, withHandler: handleGyroUpdate)
+        motionManager.deviceMotionUpdateInterval = 0.5
+        motionManager.startDeviceMotionUpdates(using: .xArbitraryZVertical, to: updateQueue, withHandler: handleMotionUpdate)
+        updateTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) {
+            [weak self] timer in
+            guard let strongSelf = self else {
+                timer.invalidate()
+                return
+            }
+            strongSelf.update()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        motionManager.stopGyroUpdates()
+        motionManager.stopDeviceMotionUpdates()
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,27 +73,40 @@ class ViewController: UIViewController {
     // MARK: - Update Display
     
     fileprivate func update() {
-        if let gyroData = gyroData {
-            xLabel.text = String(format: "x: %0.2f", gyroData.rotationRate.x)
-            yLabel.text = String(format: "y: %0.2f", gyroData.rotationRate.y)
-            zLabel.text = String(format: "y: %0.2f", gyroData.rotationRate.z)
+        var packet = ProtoBufBTLE_Packet()
+        if let motionData = self.motionData {
+            packet.rx = Int32(motionData.attitude.pitch * rad2Deg)
+            packet.ry = Int32(motionData.attitude.yaw * rad2Deg)
+            packet.rz = Int32(motionData.attitude.roll * rad2Deg)
+            xLabel.text = String(format: "x: %i", packet.rx)
+            yLabel.text = String(format: "y: %i", packet.ry)
+            zLabel.text = String(format: "z: %i", packet.rz)
+        }
+        let now = Date()
+        let time = dateFormatter.string(from: now)
+        self.timeLabel.text = time
+        
+        packet.time = Float(now.timeIntervalSinceReferenceDate)
+        guard let data = try? packet.serializedData() else {
+            NSLog("Unable to create data from protocol buffer.")
+            return
         }
         
     }
 
     // MARK: - Handle Gyroscope
     
-    fileprivate func handleGyroUpdate(gyroData: CMGyroData?, error: Error?) {
-        guard let data = gyroData else {
+    fileprivate func handleMotionUpdate(motionData: CMDeviceMotion?, error: Error?) {
+        guard let data = motionData else {
             if let error = error {
-                NSLog("Failed to get gyroscope data: \(error.localizedDescription)")
+                NSLog("Failed to get motion data: \(error.localizedDescription)")
             } else {
-                NSLog("Failed to get gyroscope data for an unknown reason.")
+                NSLog("Failed to get motion data for an unknown reason.")
             }
             return
         }
         DispatchQueue.main.async {
-            self.gyroData = data
+            self.motionData = data
         }
     }
     

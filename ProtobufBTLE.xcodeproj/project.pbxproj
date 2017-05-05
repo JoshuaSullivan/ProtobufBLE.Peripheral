@@ -121,8 +121,8 @@
 		BC4BDCA71EBCEFD40051118C /* UserInterfaces */ = {
 			isa = PBXGroup;
 			children = (
-				BC4BDC841EBCC1C80051118C /* Main.storyboard */,
 				BC4BDC891EBCC1C80051118C /* LaunchScreen.storyboard */,
+				BC4BDC841EBCC1C80051118C /* Main.storyboard */,
 			);
 			path = UserInterfaces;
 			sourceTree = "<group>";
@@ -399,7 +399,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PKW9G7KJJ5;
+				DEVELOPMENT_TEAM = 6VVBUBU9QC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ProtobufBTLE",
@@ -416,7 +416,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PKW9G7KJJ5;
+				DEVELOPMENT_TEAM = 6VVBUBU9QC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ProtobufBTLE",
