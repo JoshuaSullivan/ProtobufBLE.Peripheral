@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+message Packet {
+  float time = 1;
+  sint32 rx = 2;
+  sint32 ry = 3;
+  sint32 rz = 4;
+}

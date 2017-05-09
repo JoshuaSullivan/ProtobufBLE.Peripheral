@@ -17,6 +17,7 @@
 		BC4BDCA51EBCEF3E0051118C /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC4BDCA41EBCEF3E0051118C /* SwiftProtobuf.framework */; };
 		BC4BDCAB1EBD14B90051118C /* BLEPeripheralService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4BDCAA1EBD14B90051118C /* BLEPeripheralService.swift */; };
 		BC6AEF371EBD370000E1A449 /* GlobalDeclarations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6AEF361EBD370000E1A449 /* GlobalDeclarations.swift */; };
+		BCE09BBD1EC11BB40088AEB8 /* SwiftProtobuf.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BC4BDCA41EBCEF3E0051118C /* SwiftProtobuf.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +29,19 @@
 			remoteInfo = ProtobufBTLE;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BCE09BBC1EC11BA70088AEB8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				BCE09BBD1EC11BB40088AEB8 /* SwiftProtobuf.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		BC4BDC7D1EBCC1C70051118C /* ProtobufBTLE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProtobufBTLE.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +174,7 @@
 				BC4BDC7A1EBCC1C70051118C /* Frameworks */,
 				BC4BDC7B1EBCC1C70051118C /* Resources */,
 				BC4BDCA31EBCEE2B0051118C /* ShellScript */,
+				BCE09BBC1EC11BA70088AEB8 /* CopyFiles */,
 			);
 			buildRules = (
 			);
