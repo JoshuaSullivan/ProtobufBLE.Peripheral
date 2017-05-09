@@ -27,33 +27,51 @@ class BLEPeripheralService: NSObject {
         manager = CBPeripheralManager()
         characteristic = CBMutableCharacteristic(type: BLEIdentifiers.Characteristics.attitude,
                                                  properties: [.notify, .read],
-                                                 value: Data(),
+                                                 value: nil,
                                                  permissions: [.readable])
         service = CBMutableService(type: BLEIdentifiers.Services.protoBuf, primary: true)
         service.characteristics = [characteristic]
         super.init()
         manager.delegate = self
-        manager.add(service)
     }
     
     func startAdvertising() {
+        guard manager.state == .poweredOn else {
+            return
+        }
         NSLog("Starting BLE advertising.")
-        manager.startAdvertising([ CBAdvertisementDataServiceUUIDsKey : [service.uuid] ])
+        manager.add(service)
+        manager.startAdvertising([
+            CBAdvertisementDataServiceUUIDsKey : [BLEIdentifiers.Services.protoBuf],
+            CBAdvertisementDataLocalNameKey : "ProtobufBLE"
+        ])
     }
     
     func stopAdvertising() {
+        guard manager.state == .poweredOn else {
+            return
+        }
         NSLog("Stopping BLE advertising.")
         manager.stopAdvertising()
     }
     
     func update(protoValue: Data) {
+        guard manager.state == .poweredOn else {
+            return
+        }
+        NSLog("Updating characteristic value.")
         manager.updateValue(protoValue, for: characteristic, onSubscribedCentrals: nil)
     }
 }
 
 extension BLEPeripheralService: CBPeripheralManagerDelegate {
     func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
-        debugPrint("Peripheral manager changed state: \(peripheral.state)")
+        switch peripheral.state {
+        case .poweredOn:
+            startAdvertising()
+        default:
+            break
+        }
     }
     
     func peripheralManager(_ peripheral: CBPeripheralManager, didAdd service: CBService, error: Error?) {

@@ -90,6 +90,7 @@ class ViewController: UIViewController {
             return
         }
         
+        BLEPeripheralService.shared.update(protoValue: data)
     }
 
     // MARK: - Handle Gyroscope
