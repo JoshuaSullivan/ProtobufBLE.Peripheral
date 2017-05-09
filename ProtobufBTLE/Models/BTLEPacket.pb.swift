@@ -19,8 +19,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct ProtoBufBTLE_Packet: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".Packet"
+struct Packet: SwiftProtobuf.Message {
+  static let protoMessageName: String = "Packet"
 
   var time: Float = 0
 
@@ -65,9 +65,7 @@ struct ProtoBufBTLE_Packet: SwiftProtobuf.Message {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "ProtoBufBTLE"
-
-extension ProtoBufBTLE_Packet: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Packet: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "time"),
     2: .same(proto: "rx"),
@@ -75,7 +73,7 @@ extension ProtoBufBTLE_Packet: SwiftProtobuf._MessageImplementationBase, SwiftPr
     4: .same(proto: "rz"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtoBufBTLE_Packet) -> Bool {
+  func _protobuf_generated_isEqualTo(other: Packet) -> Bool {
     if self.time != other.time {return false}
     if self.rx != other.rx {return false}
     if self.ry != other.ry {return false}
