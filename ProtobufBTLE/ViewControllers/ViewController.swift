@@ -71,7 +71,7 @@ class ViewController: UIViewController {
     // MARK: - Update Display
     
     fileprivate func update() {
-        var packet = ProtoBufBTLE_Packet()
+        var packet = Packet()
         if let motionData = self.motionData {
             packet.rx = Int32(motionData.attitude.pitch * rad2Deg)
             packet.ry = Int32(motionData.attitude.yaw * rad2Deg)
